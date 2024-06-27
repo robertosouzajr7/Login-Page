@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+
+* {
+  font-family: "Tenor Sans";
+}
+
+.icon-seta {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 29px;
+  color: #8b8b8b;
+  cursor: pointer;
+}
+
+form {
+  gap: 28px;
+}
+
+.div--form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #20130b;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.div--mensagem {
+  margin-bottom: 29px;
+}
+
+.div--input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid #cccccc;
+  max-height: 68px;
+  height: 100%;
+  gap: 30px;
+  border-radius: 8px;
+  padding: 15px 20px 15px 15px;
+  margin-bottom: 8px;
+}
+
+label,
+input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 8px;
+}
+
+input {
+  width: 100%;
+  max-width: 229px;
+  min-height: 15px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  font-family: "Tenor Sans";
+  font-weight: 400;
+}
+
+.icons-form {
+  color: #cccccc;
+  max-width: 100%;
+  width: 34px;
+  height: 34px;
+}
+
+.div--icons {
+  max-width: 45px;
+}
+
+p {
+  color: #8b8b8b;
+  font-size: 14px;
+  font-family: "Tenor Sans";
+  font-weight: 400;
+}
+
+h1 {
+  margin-bottom: 23px;
+  font-family: "Tenor Sans";
+  font-size: 24px;
+  font-weight: 400;
+}
+
+button {
+  width: 100%;
+  max-width: 311px;
+  height: 55px;
+  background-color: #cccccc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.text-password > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #bc8363;
+  font-family: "Tenor Sans";
+}
+
+.text-social-Accounts {
+  text-align: center;
+  font-family: "Tenor Sans";
+}
+
+.text-create-account > a {
+  color: #bc8363;
+  font-family: "Tenor Sans";
+}
