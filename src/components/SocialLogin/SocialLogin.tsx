@@ -6,23 +6,23 @@ const SocialLogin = () => {
       <ul>
         <a href="/login">
           <li>
-            <img src="/google.png" alt="" />
+            <img src="https://i.imgur.com/mMH0HkY.png" alt="" />
           </li>
         </a>
         <a href="">
           <li>
-            <img src="/facebook (2).png" alt="" />
+            <img src="https://i.imgur.com/xsIs7Px.png" alt="" />
           </li>
         </a>
         <a href="">
           <li>
-            <img src="/apple.png" alt="" />
+            <img src="https://i.imgur.com/hK5GOUc.png" alt="" />
           </li>
         </a>
 
         <a href="">
           <li>
-            <img src="/twitter.png" alt="" />
+            <img src="https://i.imgur.com/Jgdq60E.png" alt="" />
           </li>
         </a>
       </ul>
