@@ -12,11 +12,24 @@
   cursor: pointer;
 }
 
+.icon-seta:hover {
+  color: #4a4949;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
 form {
   gap: 28px;
 }
 
 .div--form {
+  margin-top: 100px;
+  background-image: url("/public/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 45px;
+  height: 812px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,6 +38,30 @@ form {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  padding: 25px;
+}
+
+.div--form:hover {
+  background-image: url("/public/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 45px;
+  height: 812px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #20130b;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 25px;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.024);
 }
 .div--mensagem {
   margin-bottom: 29px;
@@ -43,17 +80,25 @@ form {
   margin-bottom: 8px;
 }
 
+.div--input:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.01);
+  box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.024);
+}
+
 label,
 input {
   display: flex;
   flex-direction: column;
   border: none;
   gap: 8px;
+  height: auto;
+  width: 100%;
 }
 
 input {
   width: 100%;
-  max-width: 229px;
   min-height: 15px;
   border-radius: 8px;
   outline: none;
@@ -97,6 +142,11 @@ button {
   border-radius: 8px;
   margin-bottom: 20px;
 }
+button:hover {
+  background-color: #4a4949;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.01);
+}
 .text-password > a {
   display: flex;
   flex-direction: column;
@@ -115,4 +165,41 @@ button {
 .text-create-account > a {
   color: #bc8363;
   font-family: "Tenor Sans";
+}
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  max-width: 290px;
+}
+
+.password-strength {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.password-strength.strong-password {
+  color: green;
+}
+
+.password-strength.weak-password {
+  color: red;
+}
+
+.password-rules {
+  font-size: 0.8em;
+  margin-top: 10px;
+  color: #666;
+}
+
+.password-toggle-icon {
+  cursor: pointer;
+  left: 0px;
+  top: 0px;
+  position: relative;
+  color: #8b8b8b;
 }

@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import "../Login/Login.css";
+import "./Register.css";
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { TiLockClosed } from "react-icons/ti";
+import { BsPhoneFill } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../SocialLogin/SocialLogin.tsx";
 
-const LoginForm = ({ RegisterClick }) => {
+const RegisterForm = ({ LoginClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [emailPlaceholder, setEmailPlaceholder] =
     useState("Your email address");
   const [passwordPlaceholder, setPasswordPlaceholder] = useState(
     "Enter your password"
   );
+  const [phonePlaceholder, setPhonePlaceholder] = useState(
+    "Enter your phone number"
+  );
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
-  const [showPassword, setShowPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [showPasswordTips, setShowPasswordTips] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +35,19 @@ const LoginForm = ({ RegisterClick }) => {
     const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return re.test(password);
   };
-
+  const validatePhone = (phone) => {
+    const re = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
+    return re.test(phone);
+  };
+  const handlePhoneChange = (e) => {
+    const phone = e.target.value;
+    setPhone(phone);
+    if (validatePhone(phone)) {
+      setPhoneError("");
+    } else {
+      setPhoneError("Número de telefone inválido.");
+    }
+  };
   const handlePasswordChange = (e) => {
     const pwd = e.target.value;
     setPassword(pwd);
@@ -63,9 +81,10 @@ const LoginForm = ({ RegisterClick }) => {
     }
 
     if (isValid) {
+      // Submit the form
       console.log("Form submitted");
     }
-    window.alert("Login realizado com sucesso!");
+    window.alert("Cadastro realizado com sucesso!");
   };
 
   return (
@@ -74,12 +93,12 @@ const LoginForm = ({ RegisterClick }) => {
         className="icon-seta"
         width="32px"
         height="32px"
-        onClick={RegisterClick}
+        onClick={LoginClick}
       />
-      <h1>Login</h1>
+      <h1>Create Account</h1>
       <div className="div--mensagem">
-        <p>Welcome back!</p>
-        <p>Please login to continue</p>
+        <p>Enter your information below or continue</p>
+        <p>with social media account</p>
       </div>
       <form className="container--form" onSubmit={handleSubmit}>
         <div className="div--input">
@@ -102,12 +121,30 @@ const LoginForm = ({ RegisterClick }) => {
 
         <div className="div--input">
           <div className="div--icons">
+            <BsPhoneFill className="icons-form" />
+          </div>
+          <label>
+            <span>Mobile Number</span>
+            <input
+              type="tel"
+              placeholder={phonePlaceholder}
+              value={phone}
+              onFocus={() => setPhonePlaceholder("")}
+              onBlur={() => setPhonePlaceholder("Enter your phone number")}
+              onChange={handlePhoneChange}
+            />
+          </label>
+        </div>
+        {phoneError && <p className="error-message">{phoneError}</p>}
+
+        <div className="div--input">
+          <div className="div--icons">
             <TiLockClosed className="icons-form" />
           </div>
           <label>
             <span>Password</span>
             <input
-              type={showPassword ? "password" : "text"}
+              type={showPassword ? "text" : "password"}
               placeholder={passwordPlaceholder}
               value={password}
               onFocus={() => {
@@ -126,7 +163,7 @@ const LoginForm = ({ RegisterClick }) => {
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>{" "}
+          </span>
         </div>
         {passwordError && <p className="error-message">{passwordError}</p>}
         {passwordStrength && (
@@ -143,16 +180,18 @@ const LoginForm = ({ RegisterClick }) => {
 
         {showPasswordTips}
 
-        <button type="submit">Login</button>
+        <button className="button-register" type="submit">
+          Create Account
+        </button>
         <p className="text-password">
-          <a href="/login">Forgot Password?</a>
+          <a href="/senha">Forgot Password?</a>
         </p>
       </form>
       <p className="text-social-Accounts">Or Continue with Social Accounts</p>
       <SocialLogin />
-      <p className="text-create-account">
-        Don't have an account?{" "}
-        <a href="#" onClick={RegisterClick}>
+      <p className="text-create-account ">
+        Don`t have an account?{" "}
+        <a href="/conta" onClick={LoginClick}>
           Create Now
         </a>
       </p>
@@ -160,4 +199,4 @@ const LoginForm = ({ RegisterClick }) => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
